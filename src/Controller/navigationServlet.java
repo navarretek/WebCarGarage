@@ -43,13 +43,26 @@ public class navigationServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/viewGarageServlet").forward(request, response);
 		}
 		else if(act.equals("delete")) {
-			Integer tempId = Integer.parseInt(request.getParameter("id"));
-			Car carToDelete = ch.searchForCarById(tempId);
-			ch.deleteCar(carToDelete);
-			getServletContext().getRequestDispatcher("/viewGarageServlet").forward(request, response);
+			try {
+				Integer tempId = Integer.parseInt(request.getParameter("id"));
+				Car carToDelete = ch.searchForCarById(tempId);
+				ch.deleteCar(carToDelete);
+				getServletContext().getRequestDispatcher("/viewGarageServlet").forward(request, response);
+			}catch(NumberFormatException e) {
+				System.out.println("Forgot to clickk button");
+			}finally {
+				getServletContext().getRequestDispatcher("/viewGarageServlet").forward(request, response);
+			}
 		}
 		else if(act.equals("edit")) {
-			
+			try {
+			Integer tempId = Integer.parseInt(request.getParameter("id"));
+			Car carToEdit = ch.searchForCarById(tempId);
+			request.setAttribute("carToEdit",  carToEdit);
+			getServletContext().getRequestDispatcher("/edit-car.jsp").forward(request, response);
+			}catch(NumberFormatException e) {
+				getServletContext().getRequestDispatcher("/viewGarageServlet").forward(request, response);
+			}
 		}
 		else if(act.equals("add")) {
 			getServletContext().getRequestDispatcher("/index.html").forward(request, response);

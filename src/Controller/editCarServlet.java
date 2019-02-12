@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Model.Car;
+
 /**
  * Servlet implementation class editCarServlet
  */
@@ -34,7 +36,19 @@ public class editCarServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		CarHelper ch = new CarHelper();
+		
+		String model = request.getParameter("model");
+		String make = request.getParameter("make");
+		int year = Integer.parseInt(request.getParameter("year"));
+		Integer tempId = Integer.parseInt(request.getParameter("id"));
+		
+		Car carToUpdate = ch.searchForCarById(tempId);
+		carToUpdate.setMake(make);
+		carToUpdate.setModel(model);
+		carToUpdate.setYear(year);
+		ch.updateCar(carToUpdate);
+		getServletContext().getRequestDispatcher("/viewGarageServlet").forward(request, response);
 		doGet(request, response);
 	}
 
