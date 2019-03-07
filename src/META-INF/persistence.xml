@@ -3,6 +3,8 @@
 	<persistence-unit name="CarGarage" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>Model.Car</class>
+		<class>Model.Garage</class>
+		<class>Model.carsInGarages</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/carlist"/>

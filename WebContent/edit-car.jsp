@@ -10,7 +10,7 @@
 <body>
 <form action="editCarServlet" method="post">
 Make: <input type ="text" name = "make" value="${carToEdit.make}">
-Model:	<input type ="text" name = "modle" value="${carToEdit.model}">
+Model:	<input type ="text" name = "model" value="${carToEdit.model}">
 Year:	<input type ="text" name = "year" value="${carToEdit.year}">
 <input type = "hidden" name = "id" value= "${carToEdit.id}">
 <input type = "submit" value="Save edited Car">

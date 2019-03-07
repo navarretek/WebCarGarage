@@ -32,6 +32,18 @@ public class Car {
 	 * @param model
 	 * @param year
 	 */
+	public Car(String make, String model, int year,int id) {
+		super();
+		this.id = id;
+		this.make = make;
+		this.model = model;
+		this.year = year;
+	}
+	/**
+	 * @param make
+	 * @param model
+	 * @param year
+	 */
 	public Car(String make, String model, int year) {
 		super();
 		this.make = make;

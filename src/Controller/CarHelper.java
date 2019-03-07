@@ -25,6 +25,11 @@ public class CarHelper {
 		List<Car> allCars = em.createQuery("SELECT i FROM Car i").getResultList();
 		return allCars;
 	}
+	public List<Car> showAllCarsInGarage(int garageID) {
+		EntityManager em = emfactory.createEntityManager();
+		List<Car> allCars = em.createQuery("SELECT i FROM Car i").getResultList();
+		return allCars;
+	}
 	
 	public void deleteCar(Car toDelete) {
 		EntityManager em = emfactory.createEntityManager();

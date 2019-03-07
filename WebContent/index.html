@@ -3,13 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<script>
+		function checkForm(form){
+			if(form.make.value == ""){
+				alert("Error: Make input is empty!");
+				form.make.focus();
+				return false;
+			}
+			else if(form.model.value == ""){
+				alert("Error: Model input is empty!");
+				form.make.focus();
+				return false;
+			}
+			else if(form.year.value == ""){
+				alert("Error: Year input is empty!");
+				form.make.focus();
+				return false;
+			}
+			return true;
+		}
+	</script>
 </head>
 <body>
-<form action = "addCarServlet" method="post">
+<form action = "addCarServlet" method="post" onSubmit="return checkForm(this);">
 Make: <input type ="text" name = "make">
 Model: <input type = "text" name = "model">
 Year: <input type = "text" name = "year"> 
-<input type = "submit" value="Add Item">
+<input type = "submit" value="Add Car">
 </form> <br />
 <a href = "viewGarageServlet">View Garage</a>
 </body>
